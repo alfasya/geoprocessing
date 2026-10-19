@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 
 import pool from './db/config.js';
-import getAll from './handlers.js';
+import { getAll, getDistrictList } from './handlers.js';
 
 const PORT = 3000;
 
@@ -17,6 +17,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/kecamatan', getAll);
+app.get('/api/district', getDistrictList);
+app.post('/api/geoprocessing/default', (req, res) => 
+    setTimeout(() => {
+        res.status(200).json({ status: 'OK' })
+    }, 5000));
 
 async function startServer() {
     await pool.query('SELECT NOW()');

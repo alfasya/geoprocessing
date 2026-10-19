@@ -11,6 +11,23 @@ async function getAll(req, res) {
         response: 'OK',
         data: result,
     });
-};
+}
 
-export default getAll;
+async function getDistrictList(req, res) {
+    const query = await pool.query(
+        `SELECT kab_kota FROM batas_kab_kota_2019 ORDER BY kab_kota ASC`, []
+    );
+
+    const arr = [];
+
+    for (let i in query.rows) {
+        arr.push(query.rows[i].kab_kota);
+    }
+
+    res.status(200).json({
+        response: "OK",
+        list: arr,
+    });
+}
+
+export { getAll, getDistrictList };

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" id="geo-form">
+        <label for="input_geofile">Your geospatial files</label>
+        <input type="file" id="input_geofile" name="input_geofile" multiple accept=".shp, .sbx, .sbn, .prj, .dbf, .cpg, .shx, .zip, application/zip, application/x-zip-compressed">
+
+        <label for="district">Choose Region</label>
+        <select name="district" id="district">
+            <option disabled>Select District</option>
+        </select>
+
+        <input type="submit" value="Process" id="submit">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
